@@ -93,8 +93,26 @@ Azure Database Migration Service (DMS) enables seamless migration of your databa
 If you don't have one, use the following steps to create a SQL databse in your Azure Portall:
 
 1. In a new browser tab, go to the [Azure portal](https://portal.azure.com) and search for **SQL databases**. Select **+ Create**.
-1. Select the same **Resource group** you used for DMS, enter `AdventureWorksTarget` as the **Database name**, and under **Server**, select **Create new**. Enter a unique server name, set **Location** to the same region as DMS, select **Use SQL authentication**, and provide an admin login and password. Select **OK**.
-1. On the **Compute + storage** setting, select **Configure**, and choose the **Basic** or **Free** tier for cost savings. Select **Review + create**, then **Create**. Wait for the deployment to complete.
+1. Select the same **Resource group** you used for DMS, enter `AdventureWorksTarget` as the **Database name**, and under **Server**, select **Create new**.
+
+    On the **Create SQL Database** page, use the following values:
+    - **Server name**: Enter the predefined server name provided for this lab: `<ServerName>`
+    - **Location**: Select the same region as DMS
+    - **Authentication method**: **Use SQL authentication**
+    - **Server admin login**: We recommend `sqladmin`
+    - **Password**: Enter a password and make note of it
+
+    > **Note**: Use the exact server name provided for the lab. Do not create your own server name, because the automated check depends on this value.
+
+    Select **OK**.
+1. On the **Compute + storage** setting, select **Configure**, and choose the **Basic** or **Free** tier for cost savings. 
+1. Select **Next: Networking**.
+1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
+
+    > &#128221; If you selected an existing server instead of creating a new one, the **Connectivity method** option may not appear because it is already configured on the server.
+
+1. Under **Firewall rules**, set **Allow Azure services and resources to access this server** to **Yes** and **Add current client IP address** to **Yes**.
+1. Select **Review + create**, then **Create**. Wait for the deployment to complete.
 
 ## Run the compatibility assessment
 
